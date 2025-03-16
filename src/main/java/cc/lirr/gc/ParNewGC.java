@@ -1,26 +1,17 @@
 package cc.lirr.gc;
 
-/**
- *  jdk17: -Xlog:gc*=info:stdout:time,uptime,level,tags
- *  jdk8:
- *  -Xmx20M
- * -Xmn10M
- * -XX:+PrintGCDetails
- * -XX:+UseSerialGC
- * -XX:+PrintGCTimeStamps
- * -XX:SurvivorRatio=8
- */
-public class GC_Serial {
-    /**
-     * -Xmx20M
-     * -Xmn10M
-     * -XX:+PrintGCDetails   // 打印GC详细信息
-     * -XX:+UseSerialGC     // 使用Serial + Serial Old收集器
-     * -XX:+PrintGCTimeStamps
-     * -XX:SurvivorRatio=8
+
+public class ParNewGC {
+    /*
+      -Xmx20M
+      -Xmn10M
+      -XX:+PrintGCDetails
+     -XX:+UseParNew
+     -XX:+PrintGCTimeStamps
+      -XX:SurvivorRatio=8
      */
 
-    private static int size = 1024 * 256;
+    private static final int size = 1024 * 256;
     public static void main(String[] args) {
 //        System.gc();
         for (int i = 0; i < 30; i++) {
